@@ -1,6 +1,6 @@
 # website
 
-> jk
+> jk — Configuration as **Code**.
 
 ## Build Setup
 
