@@ -10,6 +10,7 @@ import router from './router';
 import CodePane from './components/CodePane';
 import Navbar from './components/Navbar';
 
+import analytics from './analytics';
 
 Vue.config.productionTip = false;
 Vue.use(VueHighlightJS);
@@ -30,3 +31,5 @@ new Vue({
   },
   template: '<App/>',
 });
+
+analytics('UA-130052649-1', { anonymize_ip: true });
