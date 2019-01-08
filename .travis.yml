@@ -17,4 +17,4 @@ jobs:
         - npm install
         - npm run build
         - ./run-release.sh
-      if: branch = master
+      if: branch = master AND type = push AND fork = false
