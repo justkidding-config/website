@@ -16,7 +16,7 @@
 
           <ul class="uk-navbar-nav uk-visible@m">
             <router-link to="/documentation" tag="li"><a>Documentation</a></router-link>
-             <li><a href="https://github.com/justkidding-config/jk" rel="noopener" target="_blank">Github</a></li>
+             <li><a href="https://github.com/jkcfg/jk" rel="noopener" target="_blank">Github</a></li>
           </ul>
 
           <div class="uk-navbar-item uk-visible@m">

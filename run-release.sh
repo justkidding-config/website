@@ -3,7 +3,7 @@
 if [ -z "$CI" ]; then
 
 # Not on CI
-git_url="git@github.com:justkidding-config/justkidding-config.github.io.git"
+git_url="git@github.com:jkcfg/jkcfg.github.io.git"
 
 else
 
