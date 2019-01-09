@@ -9,8 +9,6 @@ jobs:
       script:
         - npm install
         - npm run build
-    - stage: Test
-      script:
         - npm run lint
     - stage: Deploy
       script:
