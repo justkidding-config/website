@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "node" # always use the latest; we are only using it as a test runner for now
+cache: npm
+
+jobs:
+  include:
+    - stage: Build
+      script:
+        - npm install
+        - npm run build
+        - npm run lint
+    - stage: Deploy
+      script:
+        - npm install
+        - npm run build
+        - ./run-release.sh
+      if: branch = master AND type = push AND fork = false
