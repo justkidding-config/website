@@ -15,7 +15,7 @@
         <div class="uk-navbar-right">
 
           <ul class="uk-navbar-nav uk-visible@m">
-            <router-link to="/documentation" tag="li"><a>Documentation</a></router-link>
+            <router-link to="/documentation" tag="li" v-bind:class="{ 'uk-active': active == 'documentation' }"><a>Documentation</a></router-link>
              <li><a href="https://github.com/jkcfg/jk" rel="noopener" target="_blank">Github</a></li>
           </ul>
 
@@ -45,6 +45,7 @@ export default {
   name: 'Navbar',
   props: [
     'sticky',
+    'active',
   ],
 };
 </script>
