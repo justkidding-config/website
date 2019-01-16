@@ -78,7 +78,7 @@ name: Alice
 
 A few things to note:
 
-- The produce YAML file has its keys sorted. `jk` ensures deterministic
+- The produced YAML file has its keys sorted. `jk` ensures deterministic
   output given the same input.
 - The `developers` directory did not exist beforehand, `jk` creates
   directories when needed.
