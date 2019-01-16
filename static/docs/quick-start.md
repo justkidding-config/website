@@ -78,7 +78,7 @@ name: Alice
 
 A few things to note:
 
-- The produce YAML file has its keys sorted. `jk` ensures deterministic
+- The produced YAML file has its keys sorted. `jk` ensures deterministic
   output given the same input.
 - The `developers` directory did not exist beforehand, `jk` creates
   directories when needed.
@@ -87,65 +87,3 @@ A few things to note:
   [DRY][dry]
 
 [template]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-
-We are going to generate the [canonical Kubernetes deployment][k8s-nginx] example: an `nginx` deployment.
-
-```javascript
-// Import jk standard library for the file writing function.
-import std from "std";
-
-// Define a deployment object.
-const deployment = {
-  apiVersion: "apps/v1",
-  kind: "Deployment",
-  metadata: {
-    name: "nginx-deployment"
-  },
-  spec: {
-    selector: {
-      matchLabels: {
-        app: "nginx"
-      }
-    },
-    replicas: 2,
-    template: {
-      metadata: {
-        labels: {
-          app: "nginx"
-        }
-      },
-      spec: {
-        containers: [
-          {
-            name: "nginx",
-            image: "nginx:1.7.9",
-            ports: [
-              {
-                containerPort: 80
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
-};
-
-// Write the deployment object as YAML.
-std.write(deployment, "manifests/nginx-dep.yaml");
-```
-
-[k8s-nginx]: https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/#creating-and-exploring-an-nginx-deployment
-
-In
-
-## Why
-
-If you [setup UIkit from Github source](installation.md#compile-from-github-source), you can also compile the RTL version of UIkit yourself. This will include any [custom UIkit theme](less.md) you have created in the `custom/` directory.
-
-```sh
-yarn
-yarn compile-rtl
-```
-
-The resulting files are now located in the `dist/` folder and end with `*.rtl.css`. The JavaScript files stay the same as with the default LTR version.
