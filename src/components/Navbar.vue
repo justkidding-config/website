@@ -1,5 +1,5 @@
 <template>
-  <div class="uk-navbar-container tm-navbar-container uk-navbar-transparent"
+  <div class="uk-navbar-container tm-navbar-container"
        v-bind:uk-sticky="sticky ? 'media: 960' : false">
     <div class="uk-container uk-container-expand">
       <nav class="uk-navbar">
