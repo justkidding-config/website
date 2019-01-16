@@ -9,6 +9,7 @@ import App from './App';
 import router from './router';
 import CodePane from './components/CodePane';
 import Navbar from './components/Navbar';
+import MarkdownPage from './components/MarkdownPage';
 
 import analytics from './analytics';
 
@@ -17,6 +18,7 @@ Vue.use(VueHighlightJS);
 
 Vue.component('navbar', Navbar);
 Vue.component('codepane', CodePane);
+Vue.component('markdownpage', MarkdownPage);
 
 UIkit.use(Icons);
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="uk-navbar-container tm-navbar-container uk-navbar-transparent"
+  <div class="uk-navbar-container tm-navbar-container"
        v-bind:uk-sticky="sticky ? 'media: 960' : false">
     <div class="uk-container uk-container-expand">
       <nav class="uk-navbar">
@@ -15,7 +15,7 @@
         <div class="uk-navbar-right">
 
           <ul class="uk-navbar-nav uk-visible@m">
-            <router-link to="/documentation" tag="li"><a>Documentation</a></router-link>
+            <router-link to="/documentation" tag="li" v-bind:class="{ 'uk-active': active == 'documentation' }"><a>Documentation</a></router-link>
              <li><a href="https://github.com/jkcfg/jk" rel="noopener" target="_blank">Github</a></li>
           </ul>
 
@@ -45,6 +45,7 @@ export default {
   name: 'Navbar',
   props: [
     'sticky',
+    'active',
   ],
 };
 </script>
