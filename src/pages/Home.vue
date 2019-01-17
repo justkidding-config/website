@@ -8,7 +8,10 @@
           <img src="../assets/jk-128x200.png">
           <h2 class="uk-margin-medium-bottom">Configuration as <b>Code</b>.</h2>
           <div>
-            <a class="uk-button uk-button-primary uk-margin-right">Get Started</a>
+            <router-link class="uk-button uk-button-primary uk-margin-right"
+               to="/documentation/quick-start">
+              Get Started
+            </router-link>
             <router-link class="uk-button uk-button-default uk-margin-left uk-margin-right"
                to="/download">
               Download
