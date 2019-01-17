@@ -38,12 +38,6 @@ export function parse(markdown, cb) {
   };
 
   // hrefLink builds the href for headers.
-  /*
-  const hrefLink = (text) => {
-    console.log(`#${sluggify(text)}`);
-    return `#${sluggify(text)}`;
-  };
-  */
   const hrefLink = (text) => {
     const path = location.hash.split('/').splice(0, 3); // [ "documentation", "$page" ]
     path[0] = '';
