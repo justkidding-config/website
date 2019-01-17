@@ -1,4 +1,4 @@
-# Introduction
+# Quick start
 
 <p class="uk-text-lead">jk is a data templating tool designed to help writing structured configuration.</p>
 
