@@ -8,11 +8,14 @@
           <img src="../assets/jk-128x200.png">
           <h2 class="uk-margin-medium-bottom">Configuration as <b>Code</b>.</h2>
           <div>
-            <a class="uk-button uk-button-primary uk-margin-right">Get Started</a>
-            <router-link class="uk-button uk-button-default uk-margin-left uk-margin-right"
-               to="/download">
-              Download
+            <router-link class="uk-button uk-button-primary uk-margin-right"
+               to="/documentation/quick-start">
+              Get Started
             </router-link>
+            <a href="https://github.com/jkcfg/jk/releases/latest" class="uk-button uk-button-default uk-margin-left uk-margin-right">
+              <span class="tm-upper">Download</span>
+              <canvas uk-icon="icon: download" width="20" height="20"></canvas>
+            </a>
           </div>
         </div>
       </div>

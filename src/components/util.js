@@ -13,16 +13,6 @@ export function sluggify(text) {
 export function parse(markdown, cb) {
   const renderer = new marked.Renderer({ langPrefix: 'lang-' });
   const base = new marked.Renderer({ langPrefix: 'lang-' });
-  const modal = (href, text) => {
-    const slug = `modal-${sluggify(text)}`;
-    return `<a href="#${slug}" uk-toggle><p class="uk-margin-large-bottom"><img src="${href}" alt="${text}"></p></a>
-                <div id="${slug}" class="uk-modal-full" uk-modal>
-                    <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle uk-height-viewport">
-                        <button class="uk-modal-close-full" type="button" uk-close></button>
-                        <img src="${href}" alt="${text}">
-                    </div>
-                </div>`;
-  };
   const example = (code) => {
     const id = uniqid('code-');
 
@@ -48,12 +38,6 @@ export function parse(markdown, cb) {
   };
 
   // hrefLink builds the href for headers.
-  /*
-  const hrefLink = (text) => {
-    console.log(`#${sluggify(text)}`);
-    return `#${sluggify(text)}`;
-  };
-  */
   const hrefLink = (text) => {
     const path = location.hash.split('/').splice(0, 3); // [ "documentation", "$page" ]
     path[0] = '';
@@ -63,7 +47,6 @@ export function parse(markdown, cb) {
 
   renderer.strong = text => (text === 'Note' ? `<span class="uk-label">${text}</span>` : `<strong>${text}</strong>`);
   renderer.list = text => `<ul class="uk-list uk-list-bullet">${text}</ul>`;
-  renderer.image = (href, title, text) => (href.match(/modal$/) ? modal(href, text) : base.image(href, title, text));
   renderer.link = (href, title, text) => (href.match(/\.md/) ? base.link(href.replace(/.md(.*)/, '$1'), title, text) : base.link(href, title, text));
   renderer.code = (code, lang, escaped) => (lang === 'example' ? example(code) : `<div class="uk-margin-medium">${base.code(code, lang, escaped)}</div>`);
   renderer.hr = () => '<hr class="uk-margin-large">';
