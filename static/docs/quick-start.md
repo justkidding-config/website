@@ -6,7 +6,7 @@ The core idea of `jk` is that configuration written as YAML or JSON files
 looks just like a Javascript object. It seems a natural fit, then, to write
 Javascript code that outputs such configuration files. This allows using a
 real programming language to keep things [DRY][dry], abstract complexity away
-and explore different ways to build configuration objects.
+and explore different ways of building configuration files.
 
 This quick start tutorial should get you up and running in 5 minutes!
 
