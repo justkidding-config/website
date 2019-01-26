@@ -87,3 +87,92 @@ A few things to note:
   [DRY][dry]
 
 [template]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+## A more realistic example
+
+To make this tutorial more interesting, let's pretend we would like to
+embrace configuration as code to manage membership to our Github organization
+in an exciting startup.
+
+One way to achieve this is to use [Terraform](https://www.terraform.io/) and
+its [GitHub Provider][github-provider]. We can use `jk` to produce the [JSON
+description][json] from the list of developers kept as code. Keep in mind
+that other artifacts can be generated from the same description, for instance
+Google Apps membership . This allows us to have a single place where we list
+our developer accesses and generate all sorts of configuration from it.
+
+[json]: https://www.terraform.io/docs/configuration/syntax.html#json-syntax
+[github-provider]: https://www.terraform.io/docs/providers/github/index.html
+
+Let's start with splitting the list of developers in a separate module,
+`developer.js`:
+
+```javascript
+// Define two developers.
+export const developers = [{
+    name: 'Alice',
+    github: {
+        handle: 'alice84',
+        admin: true,
+    },
+},{
+    name: 'Bob',
+    github: {
+        handle: 'bob93',
+    },
+}];
+```
+
+We can can create the Terraform configuration from it:
+
+```javascript
+import std from 'std';
+import { developers } from 'developers.js';
+
+// Github organization
+const organization = 'myorg';
+
+const config = {
+    provider: {
+        github: {
+            organization,
+        },
+    },
+    github_membership: {},
+};
+
+// Describe membership as defined by the Github terraform provider.
+const role = developer => developer.github.admin ? 'admin' : 'member';
+const membershipId = developer => `${organization}_${developer.github.handle}`;
+
+for (const dev of developers) {
+    config.github_membership[membershipId(dev)] = {
+        username: dev.github.handle,
+        role: role(dev),
+    };
+}
+
+std.write(config, 'terraform/github.json');
+```
+
+Running `jk` on this script gives:
+
+```json
+{
+  "github_membership": {
+    "myorg_alice84": {
+      "role": "admin",
+      "username": "alice84"
+    },
+    "myorg_bob93": {
+      "role": "member",
+      "username": "bob93"
+    }
+  },
+  "provider": {
+    "github": {
+      "organization": "myorg"
+    }
+  }
+}
+```
