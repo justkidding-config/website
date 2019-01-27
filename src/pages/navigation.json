@@ -1,5 +1,8 @@
 {
   "Getting started": {
     "Quick start": "quick-start"
+  },
+  "Standard library": {
+    "std.log": "std-log"
   }
 }
