@@ -4,6 +4,7 @@
   },
   "Standard library": {
     "std.log": "std-log",
-    "std.write": "std-write"
+    "std.write": "std-write",
+    "std.read": "std-read"
   }
 }
