@@ -3,6 +3,7 @@
     "Quick start": "quick-start"
   },
   "Standard library": {
-    "std.log": "std-log"
+    "std.log": "std-log",
+    "std.write": "std-write"
   }
 }
