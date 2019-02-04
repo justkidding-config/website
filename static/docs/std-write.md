@@ -99,9 +99,9 @@ std.write(eslintrc, '.eslintrc', { format: std.Format.JSON, indent: 4 });
 ## File overwriting
 
 On occasions, you may not want to write a file if it already exists on disk.
-The `override` option controls this behavior. By default, `std.write()` will
-write over files, but not when `override: false` is specified:
+The `overwrite` option controls this behavior. By default, `std.write()` will
+write over files, but not when `overwrite: false` is specified:
 
 ```javascript
-std.write(eslintrc, '.eslintrc', { override: false });
+std.write(eslintrc, '.eslintrc', { overwrite: false });
 ```
