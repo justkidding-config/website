@@ -19,10 +19,15 @@ This quick start tutorial should get you up and running in 5 minutes!
 To install `jk`, download the [latest binary][latest] for your operating
 system. For example, to install `jk` on MacOS, run:
 
+```shell
+curl -Lo jk https://github.com/jkcfg/jk/releases/download/0.2.1/jk-darwin-amd64
+chmod +x jk
+sudo mv jk /usr/local/bin/
+```
+
+Check `jk` is correctly installed with:
+
 ```console
-$ curl -Lo jk https://github.com/jkcfg/jk/releases/download/0.2.1/jk-darwin-amd64
-$ chmod +x jk
-$ sudo mv jk /usr/local/bin/
 $ jk version
 version: 0.2.1
 ```
