@@ -1,9 +1,7 @@
 import uniqid from 'uniqid';
 import { escape } from 'he';
-import UIkit from 'uikit';
 import marked from 'marked';
-
-const { includes } = UIkit.util;
+import { jk } from '../params.json';
 
 export function sluggify(text) {
   return text.toLowerCase().trim().replace(/(&amp;| & )/g, '-and-').replace(/&(.+?);/g, '')
@@ -54,9 +52,7 @@ export function parse(markdown, cb) {
   renderer.heading = (text, level) => `<h${level} id="${hrefLink(text)}" class="uk-h${level > 1 ? level + 1 : level} tm-heading-fragment"><a href="#${hrefLink(text)}">${text}</a></h${level}>`;
 
   return marked(markdown, { renderer }, (err, content) => {
-    if (includes(content, '{%isodate%}')) {
-      content = content.replace(/{%isodate%}/g, (new Date(Date.now() + (864e5 * 7))).toISOString().replace(/\.(\d+)Z/, '+00:00'));
-    }
+    content = content.replace(/{%latestVersion%}/g, jk.latestVersion);
 
     if (cb) {
       cb.apply(this, [err, content]);
