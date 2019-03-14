@@ -1,4 +1,4 @@
-# read
+# Reading files
 
 `std.read()` reads a file. `read` returns a [Promise][promise] which resolves
 into a Javascript value. For instance, when reading a YAML file, `read`
