@@ -1,6 +1,6 @@
 # Logging to stdout
 
-`std.log()` prints a value on stdout. For objects, it will print out their
+`std.log()` prints a value to stdout. For objects, it will print out their
 JSON representation.
 
 ```javascript
