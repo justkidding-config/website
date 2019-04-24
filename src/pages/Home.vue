@@ -75,7 +75,7 @@
 <script>
 const nginxJS = `
 import k from 'kubernetes.js';
-import std from 'std';
+import * as std from '@jkcfg/std';
 
 const container = k.Container('nginx', 'nginx:1.15.4');
 const deployment = k.Deployment('nginx', 3, [container]);
