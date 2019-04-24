@@ -45,7 +45,7 @@ like:
 
 ```javascript
 // Import jk standard library for the file writing function.
-import std from 'std';
+import * as std from '@jkcfg/std';
 
 // Define a developer.
 const alice = {
@@ -131,7 +131,7 @@ export const developers = [{
 We can can create the Terraform configuration from it:
 
 ```javascript
-import std from 'std';
+import * as std from '@jkcfg/std';
 import { developers } from 'developers.js';
 
 // Github organization

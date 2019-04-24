@@ -5,7 +5,7 @@ configuration to disk. In the example below, we are writing a Javascript
 object as a YAML file.
 
 ```javascript
-import std from 'std';
+import * as std from '@jkcfg/std';
 
 // Define a developer.
 const alice = {
