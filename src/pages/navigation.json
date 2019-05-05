@@ -5,6 +5,7 @@
   "Tour": {
     "Logging to stdout": "std-log",
     "Writing files": "std-write",
-    "Reading files": "std-read"
+    "Reading files": "std-read",
+    "Input parameters": "std-param"
   }
 }
