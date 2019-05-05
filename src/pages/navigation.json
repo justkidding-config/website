@@ -6,6 +6,7 @@
     "Logging": "std-log",
     "Writing files": "std-write",
     "Reading files": "std-read",
-    "Input parameters": "std-param"
+    "Input parameters": "std-param",
+    "Filesystem": "std-fs"
   }
 }
