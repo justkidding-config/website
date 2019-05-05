@@ -3,7 +3,7 @@
     "Quick start": "quick-start"
   },
   "Tour": {
-    "Logging to stdout": "std-log",
+    "Logging": "std-log",
     "Writing files": "std-write",
     "Reading files": "std-read",
     "Input parameters": "std-param"

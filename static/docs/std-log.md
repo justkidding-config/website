@@ -1,4 +1,4 @@
-# Logging to stdout
+# Logging
 
 `std.log()` prints a value to stdout. For objects, it will print out their
 JSON representation.
