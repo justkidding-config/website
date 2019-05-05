@@ -2,9 +2,11 @@
   "Getting started": {
     "Quick start": "quick-start"
   },
-  "Standard library": {
-    "std.log": "std-log",
-    "std.write": "std-write",
-    "std.read": "std-read"
+  "Tour": {
+    "Logging": "std-log",
+    "Writing files": "std-write",
+    "Reading files": "std-read",
+    "Input parameters": "std-param",
+    "Filesystem": "std-fs"
   }
 }

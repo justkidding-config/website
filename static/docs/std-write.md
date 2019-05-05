@@ -1,4 +1,4 @@
-# write
+# Writing files
 
 `std.write()` writes a value to a file. This is the main way of writing
 configuration to disk. In the example below, we are writing a Javascript
