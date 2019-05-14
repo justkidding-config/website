@@ -103,7 +103,7 @@ One way to achieve this is to use [Terraform](https://www.terraform.io/) and
 its [GitHub Provider][github-provider]. We can use `jk` to produce the [JSON
 description][json] from the list of developers kept as code. Keep in mind
 that other artifacts can be generated from the same description, for instance
-Google Apps membership . This allows us to have a single place where we list
+Google Apps membership. This allows us to have a single place where we list
 our developer accesses and generate all sorts of configuration from it.
 
 [json]: https://www.terraform.io/docs/configuration/syntax.html#json-syntax
