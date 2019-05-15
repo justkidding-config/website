@@ -19,3 +19,14 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## How examples are embeded in the docs
+
+Examples live in https://github.com/jkcfg/jk/tree/master/examples.
+
+We expect a checkout of (or a link to) `jk` in `static/docs/jk` and we use
+[`embedmd`](https://github.com/campoy/embedmd) to do the md -> md rewrite:
+
+```console
+embedmd -w static/docs/*.md
+```

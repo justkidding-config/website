@@ -43,11 +43,9 @@ many attributes: a name, a list of language they are comfortable with, a
 preferred beverage and the number of monitors they use. With `jk` this looks
 like:
 
-```javascript
-// Import jk standard library for the file writing function.
-import * as std from '@jkcfg/std';
-
-// Define a developer.
+[embedmd]:# (jk/examples/quick-start/alice/alice.js js)
+```js
+// Alice is a developer.
 const alice = {
   name: 'Alice',
   beverage: 'Club-Mate',
@@ -57,17 +55,19 @@ const alice = {
     'haskell',
     'c++',
     '68k assembly', // Alice is cool like that!
-  ]
+  ],
 };
 
-// Write the developer description as YAML.
-std.write(alice, `developers/${alice.name.toLowerCase()}.yaml`);
+// Instruct to write the alice object as a YAML file.
+export default [
+  { value: alice, file: `developers/${alice.name.toLowerCase()}.yaml` },
+];
 ```
 
 `jk` can then run this script to produce a configuration file.
 
 ```console
-$ jk run -v alice.js
+$ jk generate -v alice.js
 wrote developers/alice.yaml
 
 $ cat developers/alice.yaml
@@ -103,7 +103,7 @@ One way to achieve this is to use [Terraform](https://www.terraform.io/) and
 its [GitHub Provider][github-provider]. We can use `jk` to produce the [JSON
 description][json] from the list of developers kept as code. Keep in mind
 that other artifacts can be generated from the same description, for instance
-Google Apps membership . This allows us to have a single place where we list
+Google Apps membership. This allows us to have a single place where we list
 our developer accesses and generate all sorts of configuration from it.
 
 [json]: https://www.terraform.io/docs/configuration/syntax.html#json-syntax
@@ -112,72 +112,73 @@ our developer accesses and generate all sorts of configuration from it.
 Let's start with splitting the list of developers in a separate module,
 `developer.js`:
 
-```javascript
+[embedmd]:# (jk/examples/quick-start/terraform-github/developers.js js)
+```js
 // Define two developers.
 export const developers = [{
-    name: 'Alice',
-    github: {
-        handle: 'alice84',
-        admin: true,
-    },
-},{
-    name: 'Bob',
-    github: {
-        handle: 'bob93',
-    },
+  name: 'Alice',
+  github: {
+    handle: 'alice84',
+    admin: true,
+  },
+}, {
+  name: 'Bob',
+  github: {
+    handle: 'bob93',
+  },
 }];
 ```
 
 We can can create the Terraform configuration from it:
 
-```javascript
-import * as std from '@jkcfg/std';
-import { developers } from 'developers.js';
+[embedmd]:# (jk/examples/quick-start/terraform-github/github.js js)
+```js
+import { developers } from './developers';
 
 // Github organization
 const organization = 'myorg';
 
-const config = {
-    provider: {
-        github: {
-            organization,
-        },
-    },
-    github_membership: {},
-};
-
-// Describe membership as defined by the Github terraform provider.
-const role = developer => developer.github.admin ? 'admin' : 'member';
+// Describe role and membership as defined by the Github terraform provider.
+const role = developer => (developer.github.admin ? 'admin' : 'member');
 const membershipId = developer => `${organization}_${developer.github.handle}`;
 
+const config = {
+  provider: {
+    github: {
+      organization,
+    },
+  },
+  github_membership: {},
+};
+
 for (const dev of developers) {
-    config.github_membership[membershipId(dev)] = {
-        username: dev.github.handle,
-        role: role(dev),
-    };
+  config.github_membership[membershipId(dev)] = {
+    username: dev.github.handle,
+    role: role(dev),
+  };
 }
 
-std.write(config, 'terraform/github.json');
+export default [
+  { value: config, file: 'github.tf' },
+];
 ```
 
-Running `jk` on this script gives:
+Running `jk generate` on this script gives:
 
-```json
-{
-  "github_membership": {
-    "myorg_alice84": {
-      "role": "admin",
-      "username": "alice84"
-    },
-    "myorg_bob93": {
-      "role": "member",
-      "username": "bob93"
-    }
-  },
-  "provider": {
-    "github": {
-      "organization": "myorg"
-    }
-  }
+```hcl
+"provider" "github" {
+  "organization" = "myorg"
+}
+
+"github_membership" "myorg_alice84" {
+  "username" = "alice84"
+
+  "role" = "admin"
+}
+
+"github_membership" "myorg_bob93" {
+  "username" = "bob93"
+
+  "role" = "member"
 }
 ```
