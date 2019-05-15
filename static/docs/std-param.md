@@ -6,7 +6,7 @@ different parameters, eg. to maintain two set of parameters for dev or prod
 environments or to inject secrets from an environment variable.
 
 Input parameters are typed, have default values and declared using
-`std.param` functions.
+`@jkcfg/std/param` functions.
 
 Let's define a Kubernetes Service taking two input parameters:
 
