@@ -1,6 +1,6 @@
 # Filesystem
 
-`jk` has high level function for accessing the file system.
+`@jkcfg/std/fs` contains high level functions for accessing the file system.
 
 ## `dir`
 
