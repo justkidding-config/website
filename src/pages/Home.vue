@@ -5,7 +5,7 @@
     <div class="uk-section">
       <div class="uk-width-1-1 uk-text-center">
         <div class="uk-container">
-          <img src="../assets/jk-128x200.png">
+          <img src="../assets/jk-200x200.png">
           <h2 class="uk-margin-medium-bottom">Configuration as <b>Code</b>.</h2>
           <div>
             <router-link class="uk-button uk-button-primary uk-margin-right"
