@@ -7,7 +7,7 @@
         <div class="uk-navbar-left">
 
           <router-link class="uk-navbar-item uk-logo" to="/">
-            <img src="../assets/jk-64x64.png">
+            <img src="../assets/jk-64x64.svg">
           </router-link>
 
         </div>
