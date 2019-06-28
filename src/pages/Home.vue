@@ -60,10 +60,14 @@
 
           <!-- Hello, World! -->
           <div class="uk-width-1-2">
-            <h4 class="uk-card-title uk-text-center">Write JavaScript objects</h4>
-          </div>
+            <div class="uk-card uk-card-default uk-card-body noshadow">
+              <h4 class="uk-card-title">Write JavaScript objects</h4>
+              </div>
+            </div>
           <div class="uk-width-1-2">
-            <h4 class="uk-card-title uk-text-center">Generate YAML (or JSON, plain text, ...)</h4>
+            <div class="uk-card uk-card-default uk-card-body noshadow">
+              <h4 class="uk-card-title">Generate YAML (or JSON, plain text, ...)</h4>
+            </div>
           </div>
 
           <div class="uk-width-1-2">
@@ -75,10 +79,14 @@
 
           <!-- Kubernetes example -->
           <div class="uk-width-1-2">
-            <h4 class="uk-card-title uk-text-center">Write high-level microservices definitions</h4>
+            <div class="uk-card uk-card-default uk-card-body noshadow">
+              <h4 class="uk-card-title">Write high-level microservices definitions</h4>
+            </div>
           </div>
           <div class="uk-width-1-2">
-            <h4 class="uk-card-title uk-text-center">Generate their Kubernetes configuration</h4>
+            <div class="uk-card uk-card-default uk-card-body noshadow">
+              <h4 class="uk-card-title">Generate their Kubernetes configuration</h4>
+            </div>
           </div>
 
           <div class="uk-width-1-2">
@@ -330,3 +338,11 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.noshadow {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+</style>
