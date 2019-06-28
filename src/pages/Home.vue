@@ -58,11 +58,17 @@
       <div class="uk-width-1-1">
         <div class="uk-grid" uk-grid>
           <div class="uk-width-1-2">
-            <codepane v-bind:files="input" />
+            <h4 class="uk-card-title">Write JavaScript objects</h4>
+          </div>
+          <div class="uk-width-1-2">
+            <h4 class="uk-card-title">Generate YAML</h4>
           </div>
 
           <div class="uk-width-1-2">
-            <codepane v-bind:files="output"/>
+            <codepane v-bind:files="kubernetes.input" />
+          </div>
+          <div class="uk-width-1-2">
+            <codepane v-bind:files="kubernetes.output"/>
           </div>
 
         </div>
@@ -126,19 +132,6 @@ export default {
 };
 `.trim();
 
-const input = [
-  {
-    name: 'nginx.js',
-    lang: 'javascript',
-    content: nginxJS,
-  },
-  {
-    name: 'kubernetes.js',
-    lang: 'javascript',
-    content: kubernetesJS,
-  },
-];
-
 const nginxYAML = `
 apiVersion: apps/v1
 kind: Deployment
@@ -160,19 +153,27 @@ spec:
         app: nginx
 `.trim();
 
-const output = [
-  {
+const kubernetes = {
+  input: [{
+    name: 'nginx.js',
+    lang: 'javascript',
+    content: nginxJS,
+  }, {
+    name: 'kubernetes.js',
+    lang: 'javascript',
+    content: kubernetesJS,
+  }],
+  output: [{
     name: 'nginx.yaml',
     lang: 'YAML',
     content: nginxYAML,
-  },
-];
+  }],
+};
 
 export default {
   name: 'Home',
   data: () => ({
-    input,
-    output,
+    kubernetes,
   }),
 };
 </script>
