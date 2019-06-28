@@ -58,12 +58,27 @@
       <div class="uk-width-1-1">
         <div class="uk-grid" uk-grid>
 
-          <!-- Kubernetes example -->
+          <!-- Hello, World! -->
           <div class="uk-width-1-2">
-            <h4 class="uk-card-title">Write high-level microservices definitions</h4>
+            <h4 class="uk-card-title uk-text-center">Write JavaScript objects</h4>
           </div>
           <div class="uk-width-1-2">
-            <h4 class="uk-card-title">Generate their Kubernetes configuration</h4>
+            <h4 class="uk-card-title uk-text-center">Generate YAML (or JSON, plain text, ...)</h4>
+          </div>
+
+          <div class="uk-width-1-2">
+            <codepane v-bind:files="alice.input" />
+          </div>
+          <div class="uk-width-1-2">
+            <codepane v-bind:files="alice.output"/>
+          </div>
+
+          <!-- Kubernetes example -->
+          <div class="uk-width-1-2">
+            <h4 class="uk-card-title uk-text-center">Write high-level microservices definitions</h4>
+          </div>
+          <div class="uk-width-1-2">
+            <h4 class="uk-card-title uk-text-center">Generate their Kubernetes configuration</h4>
           </div>
 
           <div class="uk-width-1-2">
@@ -81,6 +96,50 @@
 </template>
 
 <script>
+const aliceJS = `
+// Alice is a developer.
+const alice = {
+  name: 'Alice',
+  beverage: 'Club-Mate',
+  monitors: 2,
+  languages: [
+    'python',
+    'haskell',
+    'c++',
+    '68k assembly', // Alice is cool like that!
+  ],
+};
+
+// Instruct to write the alice object as a YAML file.
+export default [
+  { value: alice, file: \`developers/\${alice.name.toLowerCase()}.yaml\` },
+];
+`.trim();
+
+const aliceYAML = `
+beverage: Club-Mate
+languages:
+- python
+- haskell
+- c++
+- 68k assembly
+monitors: 2
+name: Alice
+`.trim();
+
+const alice = {
+  input: [{
+    name: 'alice.js',
+    lang: 'javascript',
+    content: aliceJS,
+  }],
+  output: [{
+    name: 'alice.yaml',
+    lang: 'YAML',
+    content: aliceYAML,
+  }],
+};
+
 const billing = `
 import { MicroService } from './micro-service';
 
@@ -266,6 +325,7 @@ const kubernetes = {
 export default {
   name: 'Home',
   data: () => ({
+    alice,
     kubernetes,
   }),
 };
