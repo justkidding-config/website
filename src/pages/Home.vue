@@ -80,7 +80,7 @@
           <!-- Kubernetes example -->
           <div class="uk-width-1-2">
             <div class="uk-card uk-card-default uk-card-body noshadow">
-              <h4 class="uk-card-title">Write high-level microservices definitions</h4>
+              <h4 class="uk-card-title">Write high-level microservice definitions</h4>
             </div>
           </div>
           <div class="uk-width-1-2">
