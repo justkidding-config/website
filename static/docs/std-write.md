@@ -5,7 +5,7 @@ configuration to disk. In the example below, we are writing a Javascript
 object as a YAML file.
 
 ```javascript
-import * as std from '@jkcfg/std';
+import { write } from '@jkcfg/std';
 
 // Define a developer.
 const alice = {
@@ -21,7 +21,7 @@ const alice = {
 };
 
 // Write the developer description as YAML.
-std.write(alice, `developers/alice.yaml`);
+write(alice, `developers/alice.yaml`);
 ```
 
 Once run, this script creates the `developers/alice.yaml` file:
@@ -47,6 +47,8 @@ The `format` option specifies the desired format and takes precedence over
 the file extension.
 
 ```javascript
+import { write, Format } from '@jkcfg/std'
+
 const eslintrc = {
   extends: 'airbnb-base',
   rules: {
@@ -54,7 +56,7 @@ const eslintrc = {
   },
 };
 
-std.write(eslintrc, '.eslintrc', { format: std.Format.JSON });
+write(eslintrc, '.eslintrc', { format: Format.JSON });
 ```
 
 ```json
@@ -87,7 +89,7 @@ const eslintrc = {
   extends: 'airbnb-base',
 };
 
-std.write(eslintrc, '.eslintrc', { format: std.Format.JSON, indent: 4 });
+write(eslintrc, '.eslintrc', { format: Format.JSON, indent: 4 });
 ```
 
 ```json
@@ -103,5 +105,5 @@ The `overwrite` option controls this behavior. By default, `std.write()` will
 write over files, but not when `overwrite: false` is specified:
 
 ```javascript
-std.write(eslintrc, '.eslintrc', { overwrite: false });
+write(eslintrc, '.eslintrc', { overwrite: false });
 ```
