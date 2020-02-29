@@ -3,7 +3,7 @@
     "Quick start": "quick-start"
   },
   "Standard library": {
-    "Logging": "std-log",
+    "Printing and logging": "std-log",
     "Writing files": "std-write",
     "Reading files": "std-read",
     "Input parameters": "std-param",
