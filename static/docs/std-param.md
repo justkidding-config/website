@@ -13,8 +13,11 @@ Let's define a Kubernetes Service taking two input parameters:
 - The name of the service
 - The port of the service
 
+> For clarity, `param` is imported as a namespace rather than
+> referring to the individual exports, below.
+
 ```js
-import * as std from '@jkcfg/std';
+import { write } from '@jkcfg/std';
 import * as param from '@jkcfg/std/param';
 
 const params = {
@@ -39,7 +42,7 @@ const service = (params) => ({
   },
 });
 
-std.write(service(params), `${params.name}-svc.yaml`);
+write(service(params), `${params.name}-svc.yaml`);
 ```
 
 Invoke the script with two input parameters:
@@ -81,8 +84,8 @@ wrote mysuperservice-svc.yaml
 
 ## The parameters object
 
-Internally all parameters are stored in a single object with parameters name
-being the object keys. It's possible to nest objects:
+Internally all parameters are stored in a single object with parameter
+names being the object keys. It's possible to nest objects:
 
 ```yaml
 service:
@@ -122,10 +125,10 @@ service:
 Executing the following script:
 
 ```js
-import * as std from '@jkcfg/std';
+import { write } from '@jkcfg/std';
 import * as param from '@jkcfg/std/param';
 
-std.log(param.all());
+write(param.all());
 ```
 
 With:

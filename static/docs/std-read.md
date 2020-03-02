@@ -20,11 +20,11 @@ We're going to write a script reading that file and displaying the list of
 developers.
 
 ```js
-import std from 'std'
+import { read, log } from '@jkcfg/std';
 
-std.read('developers.yaml').then(developers => {
+read('developers.yaml').then(developers => {
   for (const dev of developers) {
-    std.log(dev.name);
+    log(dev.name);
   }
 });
 ```
