@@ -2,6 +2,14 @@
   "Getting started": {
     "Quick start": "quick-start"
   },
+  "Command reference": {
+    "Running a script": "cmd-run",
+    "Generating files": "cmd-generate",
+    "Validating files": "cmd-validate",
+    "Transforming files": "cmd-transform",
+    "Common options": "cmd-options",
+    "Module resolution": "module-resolution"
+  },
   "Standard library": {
     "Printing and logging": "std-log",
     "Writing files": "std-write",
