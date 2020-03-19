@@ -9,6 +9,7 @@
     "Module resources": "std-resource",
     "Input parameters": "std-param",
     "Filesystem": "std-fs",
+    "Parsing and stringifying": "std-parse",
     "API reference": "std-api-reference"
   }
 }
