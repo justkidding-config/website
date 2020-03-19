@@ -6,6 +6,7 @@
     "Printing and logging": "std-log",
     "Writing files": "std-write",
     "Reading files": "std-read",
+    "Module resources": "std-resource",
     "Input parameters": "std-param",
     "Filesystem": "std-fs",
     "API reference": "std-api-reference"
