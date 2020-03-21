@@ -37,6 +37,31 @@ monitors: 2
 name: Alice
 ```
 
+## Writing to stdout
+
+To write to `stdout` instead of a file, use the symbol `stdout` in the
+std module. Here's an example:
+
+```javascript
+import { write, stdout } from '@jkcfg/std';
+
+const barry = {
+  name: 'Barry',
+  beverage: 'Earl Grey tea',
+  monitors: 1,
+  languages: [
+    'python',
+    'go',
+    'typescript',
+  ]
+};
+
+write(barry, stdout);
+```
+
+Since there is no file name to indicate the format to write out, you
+will usually want to specify it. See below.
+
 ## Format
 
 `std.write()` will deduce the file format from its extension. However there
